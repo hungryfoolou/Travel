@@ -1,6 +1,6 @@
 # travel
 
-> A Vue.js project
+> A travel project with Vue.
 
 ## Build Setup
 
