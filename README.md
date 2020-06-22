@@ -1,4 +1,4 @@
-# travel
+# Travel
 
 > A travel project with Vue.
 
