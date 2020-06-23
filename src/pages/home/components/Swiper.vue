@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+    <!-- 这样设置v-if是因为：让swiper标签内数据初次创建 由完整数据而不是空数组创建 -->
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img class="swipter-img" :src="item.imgUrl">  <!--src需加:，因为是属性绑定-->
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -12,20 +13,28 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data: function () {
     return {
       swiperOption: {
         // 使得滑动时，图片下侧有点，点的颜色深的话，表示轮播的是当前图片
         pagination: '.swiper-pagination', // 有一个点，表示传入swiper-pagination类名
         loop: true // 循环展示图片
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201306/04/e6a374c53b689923c8d65eac.jpg_600x330_42925612.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201401/29/8e60d7bb448bc8d4652efb382324076f.jpg_600x330_6bbc3349.jpg'
-      }]
+      }
+      // swiperList: [{
+      //   id: '0001',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/201306/04/e6a374c53b689923c8d65eac.jpg_600x330_42925612.jpg'
+      // }, {
+      //   id: '0002',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/201401/29/8e60d7bb448bc8d4652efb382324076f.jpg_600x330_6bbc3349.jpg'
+      // }]
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

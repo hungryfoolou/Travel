@@ -1,7 +1,7 @@
 <template>
   <div class="icons">
     <!-- 轮播图标-->
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showIcons">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -18,56 +18,23 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         // 使得滑动时，图片下侧有点，点的颜色深的话，表示轮播的是当前图片
         pagination: '.swiper-pagination', // 有一个点，表示传入swiper-pagination类名
-        loop: true // 循环展示图片
-      },
-      iconList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '景点门票'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '一日游'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png',
-        desc: '踏青赏花'
-      }, {
-        id: '0004',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-        desc: '泡温泉'
-      }, {
-        id: '0005',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/89/55083b0f1951f302.png',
-        desc: '两江夜游'
-      }, {
-        id: '0006',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-        desc: '重庆文旅局'
-      }, {
-        id: '0007',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-        desc: '神秘武隆'
-      }, {
-        id: '0008',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/338c5b924c5809e8c7b14f60a953c3e2.png',
-        desc: '重庆欢乐谷'
-      }, {
-        id: '0009',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/5d502c0984b223bfeed0aac5ecdc7a99.png',
-        desc: '黑山谷'
-      }]
+        loop: true, // 循环展示图片
+        autoplay: false // 禁止自动滚动，不过不加这行代码也可以，已经是不自动滚动的效果了
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8) // page、index都从0开始编号
         if (!pages[page]) { // page不存在于pages中
           pages[page] = []
@@ -75,6 +42,9 @@ export default {
         pages[page].push(item) // 设置某个page应该展示的item
       })
       return pages
+    },
+    showIcons () {
+      return this.list.length
     }
   }
 }
