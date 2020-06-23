@@ -92,35 +92,37 @@ export default {
     width: 100% // 可以省略该行代码，因为icons是div标签
     padding-bottom: 55%  // 高度为宽度的50%，但是为了给下方小圆点空间改为55%(.swiper-pagination-bullets)
     // background: green
-  .icon // 由于设置了.icons >>> .swiper-container，这之后代码取消缩进，不过不取消缩进应该也没问题
-    position: relative
-    overflow: hidden
-    float: left
-    height: 0 // 不这样设置的话，icon会不止占了icons的一半高度
-    width: 25%
-    padding-bottom: 25% // 不能用height:25%因为父元素height为0。高度与宽度1:1
-    // background: red
-    .icon-img
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: .44rem  // 留给图片下面的p标签的空间
-      box-sizing: border-box // 参考：https://www.cnblogs.com/xinjianheyi/p/6552695.html
-      padding: .1rem
-      // background: blue
-      .icon-img-content
-        display: block
-        margin: 0 auto  // 自动居中
-        height:100%
-    .icon-desc
-      position: absolute
-      left: 0
-      right: 0
-      bottom: 0
-      line-height: .44rem  // 与.icon-img的bottom对应
-      height: .44rem
-      text-align: center
-      color: $darkTextColor
-      ellipsis()
+  .icons
+    margin-top:.1rem
+    .icon
+      position: relative
+      overflow: hidden
+      float: left
+      height: 0 // 不这样设置的话，icon会不止占了icons的一半高度
+      width: 25%
+      padding-bottom: 25% // 不能用height:25%因为父元素height为0。高度与宽度1:1
+      // background: red
+      .icon-img
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: .44rem  // 留给图片下面的p标签的空间
+        box-sizing: border-box // 参考：https://www.cnblogs.com/xinjianheyi/p/6552695.html
+        padding: .1rem
+        // background: blue
+        .icon-img-content
+          display: block
+          margin: 0 auto  // 自动居中
+          height:100%
+      .icon-desc
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        line-height: .44rem  // 与.icon-img的bottom对应
+        height: .44rem
+        text-align: center
+        color: $darkTextColor
+        ellipsis()
 </style>
