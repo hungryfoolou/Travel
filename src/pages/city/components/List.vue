@@ -17,7 +17,9 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) of cities" :key="key"> <!--循环对象时第二项不是index而是key-->
+      <!--ref="key"使得每个area的ref分别为'A'、'B'、'C'...，由于数据是变化的，所以ref前面加冒号(与其他ref不同)
+      ,使用this.scroll.scrollToElement()跳转到某个ref相应的dom元素即可-->
+      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key"><!--循环对象时第二项不是index而是key-->
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
           <div class="item border-bottom" v-for ="innerItem of item"
@@ -37,10 +39,23 @@ export default {
   props: {
     localCity: String,
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted () { // 加载完就执行betterscroll操作
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter: function () {
+      if (this.letter) { // 如果不为空，说明用户点击了右侧某个字母
+        /* 因为上面写了代码ref="key"，跳转到某ref对应的dom即可
+        由于上面是在循环(v-for)输出的ref，通过this.$refs[this.letter]获取的是一个数组，
+        需转化为dom元素/dom选择器，后面加[0]就可以获取对应dom元素 */
+        const element = this.$refs[this.letter][0]
+        // console.log(element)
+        this.scroll.scrollToElement(element) // 调用betterscroll方法
+      }
+    }
   }
 }
 </script>

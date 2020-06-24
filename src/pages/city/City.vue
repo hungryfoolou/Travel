@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :localCity="localCity" :hotCities="hotCities" :cities="cities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-list :letter="letter" :localCity="localCity" :hotCities="hotCities" :cities="cities"></city-list>
+    <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
   </div>
 </template>
 
@@ -26,7 +26,8 @@ export default {
     return {
       localCity: '', // 当前城市
       hotCities: [], // 类型与json文件类型一致，比如hotCities为数组
-      cities: {} // 所有城市
+      cities: {}, // 所有城市
+      letter: ''
     }
   },
   methods: {
@@ -36,7 +37,7 @@ export default {
         .then(this.getCityInfoSucc) // 数据获取成功
     },
     getCityInfoSucc (res) {
-      console.log(res)
+      // console.log(res)
       res = res.data
       if (res.ret && res.data) { // res.ret为true并且有数据
         const data = res.data
@@ -44,6 +45,10 @@ export default {
         this.hotCities = data.hotCities
         this.cities = data.cities
       }
+    },
+    handleLetterChange (letter) {
+      this.letter = letter
+      // console.log(letter)
     }
   },
   mounted () { // 页面挂载完就执行
