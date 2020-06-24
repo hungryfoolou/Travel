@@ -5,68 +5,25 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">重庆</div>
+            <div class="button">{{localCity}}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">重庆</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">重庆</div>
+          <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
+      <div class="area" v-for="(item, key) of cities" :key="key"> <!--循环对象时第二项不是index而是key-->
+        <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">B</div>
-        <div class="item-list">
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">C</div>
-        <div class="item-list">
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">D</div>
-        <div class="item-list">
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
-          <div class="item border-bottom">阿拉尔</div>
+          <div class="item border-bottom" v-for ="innerItem of item"
+          :key="innerItem.id"> <!--子级的key可以等于父级的key，只要父级的key的每个key是唯一的，但我测试失败了-->
+          {{innerItem.name}}
+          </div>
         </div>
       </div>
     </div>
@@ -77,6 +34,11 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    localCity: String,
+    hotCities: Array,
+    cities: Object
+  },
   mounted () { // 加载完就执行betterscroll操作
     this.scroll = new BScroll(this.$refs.wrapper)
   }
