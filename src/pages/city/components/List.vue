@@ -78,7 +78,7 @@ import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
   mounted () { // 加载完就执行betterscroll操作
-    let scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper)
   }
 }
 </script>
