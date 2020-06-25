@@ -9,7 +9,8 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
-        {{city}}
+        <!-- 用vuex获取公共数据 -->
+        {{this.city}} <!--{{this.doubleCity}}-->
         <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
     </router-link>
@@ -17,10 +18,13 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
+
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String // 从父组件接收的city必须是String类型
+  computed: {
+    ...mapState(['city']), // 把store中的公共数据city映射为这里的计算属性city
+    ...mapGetters(['doubleCity'])
   }
 }
 </script>
@@ -49,7 +53,8 @@ export default {
       border-radius:.1rem
       color:#ccc
     .header-right
-      width:1.24rem
+      min-width:1.04rem
+      padding: 0 .1rem
       float:right
       text-align:center
       color: #fff

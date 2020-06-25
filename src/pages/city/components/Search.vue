@@ -7,7 +7,12 @@
     <!-- keyword为空时就不隐藏 -->
     <div class="search-content" ref="searchref" v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+        <li class="search-item border-bottom"
+          v-for="item of list" :key="item.id"
+          @click="handleCityClick(item.name)"
+          >
+          {{item.name}}
+        </li>
         <!-- 如果搜索结果为空，则显示"没有找到匹配数据"-->
         <li class="search-item border-bottom" v-show="hasEmptyResult">没有找到匹配数据</li>
       </ul>
@@ -17,6 +22,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -33,6 +39,18 @@ export default {
     hasEmptyResult () {
       return !this.list.length
     }
+  },
+  methods: {
+    handleCityClick (city) {
+      this.changeCityMutation(city)
+      // this.$store.commit('changeCityMutation', city)
+      // this.$store.dispatch('changeCityAction', city) // 通过dispatch()触发名为changeCityAction的Action
+      // alert(city)
+      // 页面跳转
+      this.$router.push('/')
+    },
+    // 把名为changeCityMutation的mutation映射为这里的一个function：changeCityMutation
+    ...mapMutations(['changeCityMutation'])
   },
   watch: {
     keyword () {

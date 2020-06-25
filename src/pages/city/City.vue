@@ -2,7 +2,7 @@
   <div>
     <city-header></city-header>
     <city-search :cities="cities"></city-search>
-    <city-list :letter="letter" :localCity="localCity" :hotCities="hotCities" :cities="cities"></city-list>
+    <city-list :letter="letter" :hotCities="hotCities" :cities="cities"></city-list>
     <city-alphabet :cities="cities" @change="handleLetterChange"></city-alphabet>
   </div>
 </template>
@@ -24,7 +24,6 @@ export default {
   },
   data () {
     return {
-      localCity: '', // 当前城市
       hotCities: [], // 类型与json文件类型一致，比如hotCities为数组
       cities: {}, // 所有城市
       letter: ''
@@ -41,7 +40,6 @@ export default {
       res = res.data
       if (res.ret && res.data) { // res.ret为true并且有数据
         const data = res.data
-        this.localCity = data.city
         this.hotCities = data.hotCities
         this.cities = data.cities
       }

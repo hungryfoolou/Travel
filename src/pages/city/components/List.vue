@@ -5,14 +5,17 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">{{localCity}}</div>
+            <div class="button">{{this.currentCity}}</div><!-- 用vuex获取公共数据 -->
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
+          <div class="button-wrapper" v-for="item of hotCities"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+          >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -22,9 +25,11 @@
       <div class="area" v-for="(item, key) of cities" :key="key" :ref="key"><!--循环对象时第二项不是index而是key-->
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for ="innerItem of item"
-          :key="innerItem.id"> <!--子级的key可以等于父级的key，只要父级的key的每个key是唯一的，但我测试失败了-->
-          {{innerItem.name}}
+          <div class="item border-bottom"
+            @click="handleCityClick(innerItem.name)"
+            v-for ="innerItem of item"
+            :key="innerItem.id"> <!--子级的key可以等于父级的key，只要父级的key的每个key是唯一的，但我测试失败了-->
+            {{innerItem.name}}
           </div>
         </div>
       </div>
@@ -34,16 +39,30 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
-    localCity: String,
     hotCities: Array,
     cities: Object,
     letter: String
   },
-  mounted () { // 加载完就执行betterscroll操作
-    this.scroll = new BScroll(this.$refs.wrapper)
+  computed: {
+    ...mapState({
+      currentCity: 'city' // 把store中的公共数据city映射为这里的计算属性currentCity
+    })
+  },
+  methods: {
+    handleCityClick (city) {
+      this.changeCityMutation(city)
+      // this.$store.commit('changeCityMutation', city)
+      // this.$store.dispatch('changeCityAction', city) // 通过dispatch()触发名为changeCityAction的Action
+      // alert(city)
+      // 页面跳转
+      this.$router.push('/')
+    },
+    // 把名为changeCityMutation的mutation映射为这里的一个function：changeCityMutation
+    ...mapMutations(['changeCityMutation'])
   },
   watch: {
     letter: function () {
@@ -56,6 +75,9 @@ export default {
         this.scroll.scrollToElement(element) // 调用betterscroll方法
       }
     }
+  },
+  mounted () { // 加载完就执行betterscroll操作
+    this.scroll = new BScroll(this.$refs.wrapper)
   }
 }
 </script>
