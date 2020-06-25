@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App' // 可省略文件后缀(.vue)
 import router from './router'
-import fastClick from 'fastclick'
+// import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store/index.js' // 不写'/index.js'的话会自动寻找
 import 'styles/reset.css'
@@ -12,7 +12,11 @@ import 'styles/iconfont.css'
 import 'swiper/css/swiper.css'
 
 Vue.config.productionTip = false
-fastClick.attach(document.body)
+
+/* 为src/assets/styles/reset.css添加touch-action: manipulation;即可,
+参考:developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away */
+// fastClick.attach(document.body)
+
 Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */

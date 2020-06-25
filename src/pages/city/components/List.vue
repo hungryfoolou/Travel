@@ -77,7 +77,9 @@ export default {
     }
   },
   mounted () { // 加载完就执行betterscroll操作
-    this.scroll = new BScroll(this.$refs.wrapper)
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      click: true
+    })
   }
 }
 </script>

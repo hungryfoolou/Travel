@@ -63,7 +63,7 @@ export default {
           if (index >= 0 && index < this.letters.length) {
             this.$emit('change', this.letters[index])
           }
-        }, 16) // 间隔16毫秒
+        }, 8) // 间隔8毫秒
       }
     },
     handleTouchEnd () {
