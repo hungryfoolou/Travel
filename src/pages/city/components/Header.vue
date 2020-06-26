@@ -16,7 +16,7 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/variables.styl'
   .header
-    position: relative
+    position: relative // 相对于其正常位置进行定位
     overflow: hidden
     height: $headerHeight
     line-height: $headerHeight
@@ -25,7 +25,8 @@ export default {
     background: $bgColor
     font-size: .32rem
     .header-back-icon
-      position: absolute // 用绝对定位（相对于的父元素则用相对定位）并设置top和left，否则不显示icon
+      // 相对于static定位以外的第一个父元素进行定位，参考：https://www.runoob.com/cssref/pr-class-position.html
+      position: absolute
       top: 0
       left: 0
       width: .64rem
