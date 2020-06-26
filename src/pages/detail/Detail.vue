@@ -22,5 +22,5 @@ export default {
 <style lang="stylus" scoped>
   .content
     height: 50rem
-    background: red
+    // background: red
 </style>
