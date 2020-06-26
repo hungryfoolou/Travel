@@ -16,8 +16,11 @@ export default new Router({
     name: 'City',
     component: City
   }, {
-    path: '/detail/:id', // :id动态路由，参数会放到id这个变量中
+    path: '/detail/:id', // :id的冒号表示动态路由，Recommend.vue的代码':to="'/detail/' + item.id"'的id会传递到id这个变量中
     name: 'Detail',
     component: Detail
-  }]
+  }],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 } // 新显示的页面x轴、y轴初始值为0
+  }
 })

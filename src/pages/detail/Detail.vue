@@ -1,6 +1,11 @@
 <template>
   <div>
-    <detail-banner></detail-banner>
+    <detail-banner
+      :sightName="sightName"
+      :bannerImg="bannerImg"
+      :bannerImgs="gallaryImgs"
+    >
+    </detail-banner>
     <detail-header></detail-header>
     <div class="content">
       <detail-list :list="list"></detail-list>
@@ -12,6 +17,7 @@
 import DetailBanner from './components/Banner.vue'
 import DetailHeader from './components/Header.vue'
 import DetailList from './components/List.vue'
+import axios from 'axios'
 
 export default {
   name: 'Detail',
@@ -22,26 +28,35 @@ export default {
   },
   data () {
     return {
-      list: [{
-        title: '成人票',
-        children: [{
-          title: '成人三馆联票',
-          children: [{
-            title: '成人三馆联票-A'
-          }, {
-            title: '成人三馆联票-B'
-          }]
-        }, {
-          title: '成人五馆联票'
-        }]
-      }, {
-        title: '学生票'
-      }, {
-        title: '儿童票'
-      }, {
-        title: '特惠票'
-      }]
+      sightName: '',
+      bannerImg: '',
+      gallaryImgs: [],
+      list: []
     }
+  },
+  methods: {
+    getDetailInfo () {
+      // 请求/static/mock/中模拟的ajax数据（配置config/index.js实现了/api/路径数据的转发）
+      axios.get('/api/detail.json?id=', { // 参数来自router/index.js
+        params: {
+          id: this.$route.params.id
+        } // 代码等价于 axios.get('/api/detail.json?id=' + this.$route.params.id)
+      }).then(this.getDetailInfoSucc) // 数据获取成功
+    },
+    getDetailInfoSucc (res) {
+      // console.log(res)
+      res = res.data
+      if (res.ret && res.data) { // res.ret为true并且有数据
+        const data = res.data
+        this.sightName = data.sightName
+        this.bannerImg = data.bannerImg
+        this.gallaryImgs = data.gallaryImgs
+        this.list = data.categoryList
+      }
+    }
+  },
+  mounted () { // 页面挂载完就执行
+    this.getDetailInfo()
   }
 }
 </script>
