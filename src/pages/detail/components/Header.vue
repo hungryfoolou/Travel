@@ -78,6 +78,7 @@ export default {
       color: #fff
       font-size: .4rem
   .header-fixed
+    z-index: 2 // 值不能大于Banner引用的gallary/Gallary.vue中的z-index，不然轮播图片可能会被挡住
     position: fixed
     top: 0
     right: 0
