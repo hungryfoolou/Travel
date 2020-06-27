@@ -37,6 +37,7 @@ export default {
   methods: {
     getDetailInfo () {
       // 请求/static/mock/中模拟的ajax数据（配置config/index.js实现了/api/路径数据的转发）
+      // 原代码 '/api/detail.json?id='，放到服务器则改为'/travel/static/mock/detail.json?id='
       axios.get('/api/detail.json?id=', { // 参数来自router/index.js
         params: {
           id: this.$route.params.id

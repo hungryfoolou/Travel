@@ -32,6 +32,7 @@ export default {
   methods: {
     getCityInfo () {
       // 请求/static/mock/中模拟的ajax数据
+      // 原代码'/api/city.json'，放到服务器则改为'/travel/static/mock/city.json'
       axios.get('/api/city.json') // 返回结果是Promise对象
         .then(this.getCityInfoSucc) // 数据获取成功
     },

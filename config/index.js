@@ -11,6 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
+    // 注意通过npm run build之后进行上线后，proxy就不生效了
     // 模拟数据，开发环境(dev)下，访问api的请求通过target中的localhost:8080（前端服务器端口）进行请求
     proxyTable: {
       '/api': {
@@ -82,7 +83,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/', // 放到服务器的/var/www/html/travel中则改为'/travel'，默认为'/'
 
     /**
      * Source Maps
