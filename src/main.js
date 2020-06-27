@@ -5,6 +5,7 @@ import App from './App' // 可省略文件后缀(.vue)
 import router from './router'
 // import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'babel-polyfill' // 有的低版本Android手机的浏览器不支持promises
 import store from './store/index.js' // 不写'/index.js'的话会自动寻找
 import 'styles/reset.css'
 import 'styles/border.css'

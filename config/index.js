@@ -10,6 +10,8 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+
+    // 模拟数据，开发环境(dev)下，访问api的请求通过target中的localhost:8080（前端服务器端口）进行请求
     proxyTable: {
       '/api': {
         target: 'http://localhost:8080',
@@ -18,6 +20,29 @@ module.exports = {
         }
       }
     },
+
+    // 能访问首页，不能访问景点详情页，提问：https://coding.imooc.com/learn/questiondetail/195144.html
+    // // 真实数据，本地Apache
+    // proxyTable: {
+    //   '/api': {
+    //     target: 'localhost:80',  // 可以省略:80
+    //     // 可以下面这部分，因为api映射为api路径就不必写了
+    //     pathRewrite: {
+    //       '^/api': '/api'  // 替换路径为F:\App_apply\webserver\apache\apply\htdocs\api
+    //     }
+    //   }
+    // },
+
+    // // 真实数据，服务器
+    // proxyTable: {
+    //   '/api': {
+    //     target: '188.131.215.160:80',  // 可以省略:80
+    //     // 如果api映射为 服务器/api路径就不必写下面这部分
+    //     pathRewrite: {
+    //       '^/api': '/Travel_api/api'  // 替换路径为/var/www/html/Travel_api/api
+    //     }
+    //   }
+    // },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
