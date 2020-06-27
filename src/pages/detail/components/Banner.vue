@@ -11,13 +11,18 @@
         </div>
       </div>
     </div>
-    <common-gallary @close="handleGallaryClose" :imgs="bannerImgs" v-show="showGallary"></common-gallary>
+    <fade-animation>
+      <!-- 把common-gallary组件传入fade-animation组件的template中的slot插槽中 -->
+      <common-gallary @close="handleGallaryClose" :imgs="bannerImgs" v-show="showGallary">
+      </common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 // 在build/webpack/base.conf.js中为src/common设置了别名common
 import CommonGallary from 'common/gallary/Gallary.vue'
+import FadeAnimation from 'common/fade/FadeAnimation.vue'
 export default {
   name: 'DetailBanner',
   props: {
@@ -39,7 +44,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   }
 }
 </script>

@@ -36,7 +36,9 @@ export default {
     handleScroll () {
       // console.log('scroll')
       // 元素的实际上边缘到显示的上边缘之间的像素数
-      const top = document.documentElement.scrollTop
+      // 不能只写document.documentElement.scrollTop，有些手机浏览器不兼容这样的语法，容易白屏
+      const top = document.documentElement.scrollTop ||
+        document.body.scrollTop || window.pageYOffset
       /* 下滑距离超过60px时，把之前的返回按钮去掉，取而代之，在顶部固定住“景点详情”，
       即使往下拖拽，“景点详情”的位置依然不变 */
       if (top > 60 && top < 140) {
@@ -52,10 +54,12 @@ export default {
       }
     }
   },
-  activated () { // 由于用了keep-alive，只要页面展示，就会执行生命周期函数activated
+  /* 如果在App.vue中用了keep-alive，只要页面展示，就会执行生命周期函数activated;由于keep-alive没有包裹
+  Detai.vue而本组件又包裹在Detail.vue中,所以activated就失效了,activated改为mounted,deactivated改为destroyed */
+  mounted () {
     window.addEventListener('scroll', this.handleScroll) // 滑动时执行handleScroll
   },
-  deactivated () {
+  destroyed () {
     // 对window全局对象解绑，不然组件可能会执行handleScroll
     window.removeEventListener('scroll', this.handleScroll)
   }
