@@ -34,8 +34,8 @@ export default {
         /* 由于在Bnnae.vue为本组件设置了v-show，刚开始不展示后面展示时swiper计算宽度有问题，
         轮播图滚动有问题，所以加下面这两行代码，使得我这个元素或者父级元素发生dom结果变化时，会自动刷新 */
         observeParents: true,
-        observer: true,
-        loop: true // 循环展示图片
+        observer: true
+        // loop: true // 如果这样设置，那么默认显示的图片是最后一张 // 循环展示图片
       }
     }
   },
