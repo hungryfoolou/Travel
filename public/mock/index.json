@@ -1,0 +1,107 @@
+{
+  "ret": true,
+  "data": {
+    "swiperList": [{
+        "id": "0001",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/201306/04/e6a374c53b689923c8d65eac.jpg_600x330_42925612.jpg"
+      },{
+        "id": "0002",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/201401/29/8e60d7bb448bc8d4652efb382324076f.jpg_600x330_6bbc3349.jpg"
+      },{
+        "id": "0003",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1712/6b/6b76d111854eb88ba3.img.jpg_600x330_3ec21f99.jpg"
+      },{
+        "id": "0004",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1805/ad/ad507355a167f587a3.img.jpg_600x330_600e6348.jpg"
+      }],
+    "iconList": [{
+        "id": "0001",
+        "imgUrl": "https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+        "desc": "景点门票"
+      }, {
+        "id": "0002",
+        "imgUrl": "https://imgs.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
+        "desc": "一日游"
+      }, {
+        "id": "0003",
+        "imgUrl": "https://imgs.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png",
+        "desc": "踏青赏花"
+      }, {
+        "id": "0004",
+        "imgUrl": "https://imgs.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png",
+        "desc": "泡温泉"
+      }, {
+        "id": "0005",
+        "imgUrl": "https://imgs.qunarzz.com/piao/fusion/1803/89/55083b0f1951f302.png",
+        "desc": "两江夜游"
+      }, {
+        "id": "0006",
+        "imgUrl": "https://imgs.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png",
+        "desc": "重庆文旅局"
+      }, {
+        "id": "0007",
+        "imgUrl": "https://imgs.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png",
+        "desc": "神秘武隆"
+      }, {
+        "id": "0008",
+        "imgUrl": "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/338c5b924c5809e8c7b14f60a953c3e2.png",
+        "desc": "重庆欢乐谷"
+      }, {
+        "id": "0009",
+        "imgUrl": "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/5d502c0984b223bfeed0aac5ecdc7a99.png",
+        "desc": "黑山谷"
+      }],
+    "recommendList": [{
+        "id": "0001",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/201403/07/bbd58c15b85f7d1a45ab9a08ccc307d2.jpg_200x200_6c1e0e13.jpg",
+        "title": "湖广会馆",
+        "desc": "重庆市渝中区长滨路芭蕉园1号湖广会馆"
+      }, {
+        "id": "0002",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/201401/29/8e60d7bb448bc8d4652efb382324076f.jpg_200x200_45d36d9b.jpg",
+        "title": "重庆柏联温泉",
+        "desc": "重庆市北碚区北温泉公园"
+      }, {
+        "id": "0003",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1805/ad/ad507355a167f587a3.img.jpg_200x200_97ec1966.jpg",
+        "title": "重庆长江索道",
+        "desc": "重庆市渝中区新华路151号"
+      }, {
+        "id": "0004",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1705/5c/5c00cf8542ccd71ca3.water.jpg_200x200_d4a78cb4.jpg",
+        "title": "朝天门",
+        "desc": "重庆市渝中区渝中半岛嘉陵江与长江交汇处"
+      }, {
+        "id": "0005",
+        "imgUrl": "https://imgs.qunarzz.com/sight/p0/1505/f0/f02f777b58d07372.water.jpg_200x200_1621fbe2.jpg",
+        "title": "大足石刻",
+        "desc": "重庆市大足区龙岗镇北山路7号"
+      }],
+    "weekendList": [{
+        "id": "0001",
+        "imgUrl": "https://imgs.qunarzz.com/sight/source/1812/4c/33ad31d025fef.jpg_r_640x214_7821b813.jpg",
+        "title": "重庆夜景大赏",
+        "desc": "享巴渝特色，赏两江风光，感受不一样的重庆夜景！"
+      }, {
+        "id": "0002",
+        "imgUrl": "https://imgs.qunarzz.com/sight/source/1507/8e/f41005646c1e8e.jpg_r_640x214_65f25f65.jpg",
+        "title": "水上狂欢",
+        "desc": "“水上狂欢”门票低至5折起"
+      }, {
+        "id": "0003",
+        "imgUrl": "https://imgs.qunarzz.com/sight/source/1505/53/4bcd11cc3a5374.jpg_r_640x214_988a4cee.jpg",
+        "title": "重庆必打卡",
+        "desc": "重庆，非去不可"
+      }, {
+        "id": "0004",
+        "imgUrl": "https://imgs.qunarzz.com/sight/source/1506/1e/f97881dbd07520.jpg_r_640x214_f8c25916.jpg",
+        "title": "本地人带你耍",
+        "desc": "玩转小面之都，High翻天"
+      }, {
+        "id": "0005",
+        "imgUrl": "https://imgs.qunarzz.com/sight/source/1505/48/f117e9b3bf582a.jpg_r_640x214_b8145711.jpg",
+        "title": "重庆大美古镇",
+        "desc": "行走重庆最美古镇，让你瞬间穿越千年"
+      }]
+  }
+}
