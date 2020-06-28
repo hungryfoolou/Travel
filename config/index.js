@@ -83,7 +83,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/', // 放到服务器的/var/www/html/travel中则改为'/travel'，默认为'/'
+    assetsPublicPath: '/travel', // 放到服务器的/var/www/html/travel中则改为'/travel'，默认为'/'
 
     /**
      * Source Maps

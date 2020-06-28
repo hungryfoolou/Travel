@@ -42,7 +42,7 @@ export default {
     getHomeInfo () {
       // 请求/static/mock/中模拟的ajax数据（配置config/index.js实现了/api/路径数据的转发）
       // 原代码为.get('/api/index.json?city=' + this.city)，放到服务器则改为'/travel/static/mock/index.json?city=' + this.city
-      axios.get('/api/index.json?city=' + this.city) // 返回结果是Promise对象
+      axios.get('/travel/static/mock/index.json?city=' + this.city) // 返回结果是Promise对象
         .then(this.getHomeInfoSucc) // 数据获取成功
     },
     getHomeInfoSucc (res) {
