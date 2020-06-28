@@ -80,7 +80,9 @@ export default {
     }
   },
   mounted () { // 加载完就执行betterscroll操作
-    this.scroll = new BScroll(this.$refs.searchref)
+    this.scroll = new BScroll(this.$refs.searchref, {
+      click: true
+    })
   }
 }
 </script>
