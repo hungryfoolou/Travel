@@ -35,7 +35,7 @@ export default {
         轮播图滚动有问题，所以加下面这两行代码，使得我这个元素或者父级元素发生dom结果变化时，会自动刷新 */
         observeParents: true,
         observer: true,
-        loop: true // 循环展示图片
+        // loop: true // 如果这样设置的话，首次显示的图片是最后一张图片 // 循环展示图片 
       }
     }
   },
