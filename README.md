@@ -1,6 +1,6 @@
 # Travel
 
-> A travel project(Qunaer) implemented by Vue.
+> A travel project (Qunaer) implemented by Vue.
 
 ## Build Setup
 
